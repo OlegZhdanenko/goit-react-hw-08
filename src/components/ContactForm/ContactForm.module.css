@@ -1,0 +1,25 @@
+.list{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 8px;
+    width:  400px;
+    align-items: center;
+   
+    
+}
+.input {
+width: 390px;
+margin-bottom: 10px
+}
+.btn{
+    width: 150px;
+    border: 1px solid black;
+}
+.messege{
+    color: red;
+}
+.label{
+align-self: flex-start;
+}

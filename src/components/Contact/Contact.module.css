@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 6px;
+    width:350px ;
+    padding: 10px;
+    
+}
+.item{
+    display: flex;
+    align-items: center;
+}
+.data{
+    margin-left: 10px;
+    font-size: 26px;
+}
+.btn{
+    height: 40px;
+    width: 100px;
+    border: 1px solid black;
+}
