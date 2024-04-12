@@ -6,12 +6,25 @@ import css from "../ContactForm/ContactForm.module.css";
 import { useDispatch } from "react-redux";
 import { addContact, fetchContacts } from "../../redux/contacts/contactsOps";
 import { useEffect } from "react";
-
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 
 export default function ContactForm() {
-    const nameFieldId = useId();
+  const nameFieldId = useId();
   const phoneFieldId = useId();
   
+  const theme = createTheme({
+        palette: {
+            ochre: {
+                main: '#FF5733',
+                light: '#E9DB5D',
+                dark: '#A29415',
+                contrastText: '#242105',
+            },
+        },
+    });
+
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -44,7 +57,10 @@ export default function ContactForm() {
                 <label htmlFor={phoneFieldId} className={css.label}>Number</label>
           <Field type="tell" name="number"  className={css.input}/>
           <ErrorMessage name="number" component="span" className={css.messege}/>
-                <button className={css.btn} type="submit">Add contact</button>
+          
+          <ThemeProvider theme={theme}>
+                    <Button variant="contained" className={css.btn} color="ochre" type="submit" >Add contact</Button>
+                    </ThemeProvider>
             </Form>
         </Formik>
     )

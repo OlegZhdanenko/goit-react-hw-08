@@ -1,7 +1,7 @@
 
 import './App.css'
-import { useDispatch ,useSelector} from "react-redux"
-// import { selectIsLoggedIn } from "./redux/auth/selectors.js"
+import { useDispatch, useSelector } from "react-redux"
+import  { Toaster } from 'react-hot-toast';
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout.jsx"
 import { useEffect , lazy, Suspense,} from 'react';
@@ -39,7 +39,10 @@ function App() {
           <Route path="/contacts" element={<PrivateRoute component={<Contacts/> } />} />
       </Routes>
       </Suspense> )
-  }
+  }<Toaster
+  position="bottom-right"
+  reverseOrder={false}
+/>
       </Layout>)
 }
 
