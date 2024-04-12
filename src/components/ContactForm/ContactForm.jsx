@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import "yup-phone";
 import css from "../ContactForm/ContactForm.module.css";
 import { useDispatch } from "react-redux";
-import { addContact, fetchContacts } from "../../redux/contacts/contactsOps";
+import { addContact, fetchContacts } from "../../redux/contacts/operations";
 import { useEffect } from "react";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';

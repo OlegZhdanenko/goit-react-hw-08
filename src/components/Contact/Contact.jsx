@@ -2,7 +2,7 @@ import { FaPhone } from "react-icons/fa6";
 import { IoManSharp } from "react-icons/io5";
 import css from '../Contact/Contact.module.css'
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contacts/contactsOps.js";
+import { deleteContact } from "../../redux/contacts/operations.js";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 
