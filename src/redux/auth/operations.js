@@ -1,8 +1,6 @@
 import  axios  from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = "https://connections-api.herokuapp.com"
-
 const setAuthHeader = token => {
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 }
@@ -13,7 +11,7 @@ const clearAuthHeader = () => {
 
 export const register = createAsyncThunk("auth/register", async (userInfo,thunkAPI) => {
     try {
-        const response = await axios.post("/users/signup", userInfo) 
+        const response = await axios.post("https://connections-api.herokuapp.com/users/signup", userInfo) 
         setAuthHeader(response.data.token)
     return response.data
     } catch (error) {
@@ -25,7 +23,7 @@ export const register = createAsyncThunk("auth/register", async (userInfo,thunkA
 
 export const logIN = createAsyncThunk("auth/login", async (userInfo,thunkAPI) => {
     try {
-        const response = await axios.post("/users/login", userInfo) 
+        const response = await axios.post("https://connections-api.herokuapp.com/users/login", userInfo) 
         setAuthHeader(response.data.token)
     return response.data
     } catch (error) {
@@ -36,7 +34,7 @@ export const logIN = createAsyncThunk("auth/login", async (userInfo,thunkAPI) =>
 )
 export const logOut = createAsyncThunk("auth/logout", async (thunkAPI) => {
     try {
-        await axios.post("/users/logout") 
+        await axios.post("https://connections-api.herokuapp.com/users/logout") 
         clearAuthHeader()
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message)
@@ -47,7 +45,7 @@ export const logOut = createAsyncThunk("auth/logout", async (thunkAPI) => {
 export const refreshUser = createAsyncThunk("auth/refresh", async (_,thunkAPI) => {
         const {auth:{token}} = thunkAPI.getState();
         setAuthHeader(token)
-      const response=  await axios.get("/users/current") 
+      const response=  await axios.get("https://connections-api.herokuapp.com/users/current") 
         return response.data
 }, {
     condition: (_, { getState }) => {

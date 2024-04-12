@@ -7,8 +7,8 @@ import Layout from "./components/Layout/Layout.jsx"
 import { useEffect , lazy, Suspense,} from 'react';
 import { refreshUser } from './redux/auth/operations.js';
 import { selectIsRefreshing } from './redux/auth/selectors.js';
-import { RestrictedRoute } from './components/AppBar/RestrictedRoute.jsx';
-import { PrivateRoute } from './components/AppBar/PrivateRoute.jsx';
+import { RestrictedRoute } from './components/RestrictedRoute.jsx';
+import { PrivateRoute } from './components/PrivateRoute.jsx';
 
 const Home = lazy(() => import("./pages/Home.jsx"));
 const Contacts = lazy(() => import("./pages/Contacts.jsx"));
