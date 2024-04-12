@@ -35,8 +35,8 @@ function App() {
     <Routes>
         <Route path="/" element={<Home />} />
           <Route path="/register" element={<RestrictedRoute component={ <Registration/>} />} />
-        <Route path="/login" element={<RestrictedRoute component={ <Login/>} />} />
-          <Route path="/contacts" element={<PrivateRoute component={<Contacts/> } />} />
+        <Route path="/login" element={<RestrictedRoute component={ <Login/>}  redirectTo="/contacts"/>} />
+          <Route path="/contacts" element={<PrivateRoute component={<Contacts/> } redirectTo="/" />} />
       </Routes>
       </Suspense> )
   }<Toaster
